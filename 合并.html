@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var arr1 = [1, 3, 5, 7, 9];
+    var arr2 = [2, 4, 6, 8, 10];
+    function merge(arr1, arr2) {
+        let len1 = arr1.length - 1
+        let len2 = arr2.length - 1
+        let mLen = arr1.length + arr2.length - 1
+        while (len1 >= 0 && len2 >= 0) {
+            if (arr1[len1] > arr2[len2]) {
+                arr2[mLen--] = arr1[len1--]
+            } else {
+                arr2[mLen--] = arr2[len2--]
+            }
+        }
+        while (len1 >= 0) {
+            arr2[mLen--] = arr1[len1--]
+        }
+        while (len2 >= 0) {
+            arr2[mLen--] = arr2[len2--]
+        }
+        return arr2
+    }
+    console.log(merge(arr1, arr2));
+</script>
+
+<body>
+
+</body>
+
+</html>
